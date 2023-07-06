@@ -1,9 +1,16 @@
-import allure
 import pytest
 from selene.support import by
 from selene.support.conditions import be
 from selene.support.shared import browser
 from selene.support.shared.jquery_style import s
+import allure
+from allure_commons.types import Severity
+
+
+@allure.label("owner", "v_serov")
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+@allure.story('Steps with decorator')
 
 
 @pytest.fixture()

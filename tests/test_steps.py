@@ -10,7 +10,7 @@ from allure_commons.types import Severity
 @allure.label("owner", "v_serov")
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
-@allure.story('Steps with decorator')
+@allure.story('Test steps with "with"')
 
 
 @pytest.fixture()

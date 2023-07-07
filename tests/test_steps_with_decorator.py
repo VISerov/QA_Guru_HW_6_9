@@ -25,6 +25,7 @@ def browser_setup():
 
 def test_with_decorator_steps(browser_setup):
     open_main_page()
+    open_input()
     search_for_repository('eroshenkoam/allure-example')
     go_to_repository('eroshenkoam/allure-example')
     open_issue_tab('#issues-tab')
@@ -35,9 +36,14 @@ def test_with_decorator_steps(browser_setup):
 def open_main_page():
     browser.open('https://github.com')
 
+
+@allure.step('Открываем инпут поиска')
+def open_input():
+    s('.header-search-button').click()
+
 @allure.step("Ищем репозиторий {repo}")
 def search_for_repository(repo):
-    s('.header-search-input').click().type(repo).press_enter()
+    s('#query-builder-test').click().type(repo).press_enter()
 
 
 @allure.step("Переходим посслыке репозитория {repo}")

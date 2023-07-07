@@ -26,8 +26,11 @@ def test_github(browser_setup):
     with allure.step('Открываем главную страницу'):
         browser.open('https://github.com')
 
+    with allure.step('Открытие поля поиска'):
+        s('.header-search-button').click()
+
     with allure.step('Ищем репозиторий'):
-        s('.header-search-input').click().type('eroshenkoam/allure-example').press_enter()
+        s('#query-builder-test').type('eroshenkoam/allure-example').press_enter()
 
     with allure.step('Переходим по ссылке репозитория'):
         s(by.link_text('eroshenkoam/allure-example')).click()

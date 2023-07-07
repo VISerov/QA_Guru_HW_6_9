@@ -13,8 +13,6 @@ from allure_commons.types import Severity
 @allure.story('Test  selene')
 
 
-
-
 @pytest.fixture()
 def browser_setup():
     browser.config.window_width = 1920
@@ -23,11 +21,11 @@ def browser_setup():
     browser.quit()
 
 
-
 def test_github(browser_setup):
     browser.open('https://github.com')
 
-    s('.header-search-input').click().type('eroshenkoam/allure-example').press_enter()
+    s('.header-search-button').click()
+    s('#query-builder-test').type('eroshenkoam/allure-example').press_enter()
     s(by.link_text('eroshenkoam/allure-example')).click()
     s('#issues-tab').click()
     s(by.partial_text('#76')).should(be.visible)
